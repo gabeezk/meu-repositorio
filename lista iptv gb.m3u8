@@ -88,7 +88,7 @@ http://ith2gdq3vn.ddns.net/035/myStream/playlist.m3u8
 http://ith2gdq3vn.ddns.net/045/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/JG4dUv" group-title="FILMES/SERIES",Max Prime
-http://ith2gdq3vn.ddns.net/092/myStream/playlist.m3u8
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/270.m3u8?|User-Agent=iPhone
 
 #EXTINF:-1 tvg-logo="http://goo.gl/T8ICde" group-title="FILMES/SERIES",Studio Universal
 http://ith2gdq3vn.ddns.net/096/myStream/playlist.m3u8
