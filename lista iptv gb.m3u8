@@ -9,7 +9,7 @@
 
 
 
-#EXTINF:-1 tvg-logo="https://bit.ly/2rY7bh9" group-title="TV Aberta",Globo
+#EXTINF:-1 tvg-logo="https://bit.ly/2rY7bh9" group-title="TV Aberta",GLOBO
 http://ith2gdq3vn.ddns.net/095/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/nVXYOf" group-title="TV Aberta",SBT
@@ -197,7 +197,6 @@ http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/262.m3u8?|User-
 
 
 #EXTINF:-1 tvg-logo="http://goo.gl/5rr2ab" group-title="MISTURADO",The History Channel
-http://ith2gdq3vn.ddns.net/024/myStream/playlist.m3u8
 http://ith2gdq3vn.ddns.net/024/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/5rr2ab" group-title="MISTURADO",H2
