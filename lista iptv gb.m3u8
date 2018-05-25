@@ -1,36 +1,33 @@
 #EXTM3U
 
 
-
+#EXTINF:0 group-title="gabelista",[COLOR blue]            -=-=-=-=-=[G]aB[e] Lista=-=-=-=-=- [/COLOR]
 
 #EXTINF:-1 group-title="TV ABERTA",[COLOR yellow]            > > > TV ABERTA < < <[/COLOR]
 
 
-
-
-
-#EXTINF:-1 tvg-logo="https://bit.ly/2rY7bh9" group-title="TV Aberta",GLOBO
+#EXTINF:-1 tvg-logo="https://bit.ly/2rY7bh9" group-title="TV ABERTA",GLOBO
 http://ith2gdq3vn.ddns.net/095/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/nVXYOf" group-title="TV Aberta",SBT
+#EXTINF:-1 tvg-logo="http://goo.gl/nVXYOf" group-title="TV ABERTA",SBT
 http://evpp.mm.uol.com.br/ne10/ne10.smil/chunklist_w1279440291_b216000_sleng.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/SZ94lw" group-title="TV Aberta",BAND
+#EXTINF:-1 tvg-logo="http://goo.gl/SZ94lw" group-title="TV ABERTA",BAND
 http://dp01-trwj4dm.stackpathdns.com/081/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/YQ9Ftm" group-title="TV Aberta",RECORD
+#EXTINF:-1 tvg-logo="http://goo.gl/YQ9Ftm" group-title="TV ABERTA",RECORD
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/242.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-logo="http://goo.gl/A1WBTk" group-title="TV Aberta",Rede TV
+#EXTINF:-1 tvg-logo="http://goo.gl/A1WBTk" group-title="TV ABERTA",Rede TV
 http://ith2gdq3vn.ddns.net063/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/QCdPkl" group-title="TV Aberta",GLOBO News
+#EXTINF:-1 tvg-logo="http://goo.gl/QCdPkl" group-title="TV ABERTA",GLOBO News
 http://ith2gdq3vn.ddns.net/013/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/dA26st" group-title="TV Aberta",RECORD News
+#EXTINF:-1 tvg-logo="http://goo.gl/dA26st" group-title="TV ABERTA",RECORD News
 http://dp01-trwj4dm.stackpathdns.com/049/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/SZ94lw" group-title="TV Aberta",BAND News
+#EXTINF:-1 tvg-logo="http://bit.ly/2IITMUj" group-title="TV ABERTA",BAND News
 http://dp01-trwj4dm.stackpathdns.com/032/myStream/playlist.m3u8
 
 
@@ -39,8 +36,6 @@ http://dp01-trwj4dm.stackpathdns.com/032/myStream/playlist.m3u8
 
 
 #EXTINF:-1 group-title="FILMES/SERIES",[COLOR yellow]            > > > FILMES/SERIES < < <[/COLOR]
-
-
 
 
 #EXTINF:-1 tvg-logo="http://goo.gl/5IKysn" group-title="FILMES/SERIES",Telecine Pipoca
@@ -82,7 +77,7 @@ http://ith2gdq3vn.ddns.net/037/myStream/playlist.m3u8
 #EXTINF:-1 tvg-logo="http://goo.gl/pTRcv8" group-title="FILMES/SERIES",HBO Signature
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/277.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-logo="http://goo.gl/Hbr506" group-title="FILMES/SERIES",Max
+#EXTINF:-1 tvg-logo="http://bit.ly/2IKQaNC" group-title="FILMES/SERIES",Max
 http://dp01-trwj4dm.stackpathdns.com/051/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/Hbr506" group-title="FILMES/SERIES",Max Up
@@ -155,12 +150,10 @@ http://ith2gdq3vn.ddns.net/007/myStream/playlist.m3u8
 #EXTINF:-1 group-title="MISTURADO",[COLOR yellow]            > > > MISTURADO < < <[/COLOR]
 
 
-
-
 #EXTINF:-1 tvg-logo="http://goo.gl/oF6osu" group-title="MISTURADO",Cartoon Network
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/319.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-id="" tvg-logo="http://goo.gl/welGCW" group-title="Infantil",Nickelodeon
+#EXTINF:-1 tvg-logo="http://goo.gl/welGCW" group-title="MISTURADO",Nickelodeon
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/259.m3u8?|User-Agent=iPhone
 
 #EXTINF:-1 tvg-logo="http://goo.gl/aWbwb4" group-title="MISTURADO",Disney XD
@@ -175,7 +168,7 @@ http://ith2gdq3vn.ddns.net/072/myStream/playlist.m3u8
 #EXTINF:-1 tvg-logo="http://goo.gl/09Wgmh" group-title="MISTURADO",BIS
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/324.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-id=""  tvg-logo="https://goo.gl/cfDftL" group-title="MISTURADO",E! Entertainment
+#EXTINF:-1 tvg-logo="http://www.elpoderdelasideas.com/wp-content/uploads/E-Entertainment-Television-logo-1990s.png" group-title="MISTURADO",E! Entertainment
 http://ith2gdq3vn.ddns.net/070/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/sJijSQ" group-title="MISTURADO",Food Network
@@ -184,7 +177,7 @@ http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/294.m3u8?|User-
 #EXTINF:-1 tvg-logo="http://goo.gl/cfDftL" group-title="MISTURADO",Mais GloboSat
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/272.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-logo="https://www.discoverybrasil.com/content/dam/discovery/latam/latam/homeandhealth/logos/tlc-logo-nav.png" group-title="MISTURADO",TLC
+#EXTINF:-1 tvg-logo="https://goo.gl/46JvTg" group-title="MISTURADO",TLC
 http://ith2gdq3vn.ddns.net/034/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/INXrU0" group-title="MISTURADO",National Geographic
@@ -203,7 +196,7 @@ http://ith2gdq3vn.ddns.net/054/myStream/playlist.m3u8
 http://162.244.80.112/loadbalance/53728121535649232781/chunks.m3u8?pxAuth=4DbwXdtxnvfocgZ8w7fvgsoVA00Wh6Lj
 
 
-#EXTINF:-1 tvg-logo="https://www.discoverybrasil.com/content/dam/discovery/latam/latam/discovery/logos/id/id.png" group-title="MISTURADO",ID - Investigação Discovery
+#EXTINF:-1 tvg-logo="https://goo.gl/al1XQO" group-title="MISTURADO",ID - Investigação Discovery
 http://ith2gdq3vn.ddns.net/056/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/yXfk9Y" group-title="MISTURADO",Animal Planet
@@ -221,25 +214,25 @@ http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/305.m3u8?|User-
 #EXTINF:-1 tvg-logo="http://goo.gl/vZm1PM" group-title="MISTURADO",Discovery Civilization
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/309.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-logo="" group-title="MISTURADO",Discovery Science
+#EXTINF:-1 tvg-logo="http://bit.ly/2sba916" group-title="MISTURADO",Discovery Science
 http://paraisotv.ddns.net/074/myStream/chunklist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="MISTURADO",Discovery Theater
+#EXTINF:-1 tvg-logo="http://bit.ly/2GKwVSF" group-title="MISTURADO",Discovery Theater
 http://162.244.80.80/loadbalance/discoverytheater/chunks.m3u8?pxAuth=XgXaF6mx4YhXnBol6s6jIi5mKq7Livxz
 
-#EXTINF:-1 tvg-logo="" group-title="MISTURADO",Discovery World
+#EXTINF:-1 tvg-logo="http://bit.ly/2GMK8KM" group-title="MISTURADO",Discovery World
 http://dp01-trwj4dm.stackpathdns.com/094/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="MISTURADO",Sex Hot
+#EXTINF:-1 tvg-logo="http://bit.ly/2GO1Q0j" group-title="MISTURADO",Sex Hot
 http://paraisotv.ddns.net/057/myStream/chunklist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="MISTURADO",PlayboyTV
+#EXTINF:-1 tvg-logo="http://bit.ly/2KQ0zs6" group-title="MISTURADO",PlayboyTV
 http://paraisotv.ddns.net/059/myStream/chunklist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="MISTURADO",Sexy Prive
+#EXTINF:-1 tvg-logo="http://bit.ly/2x9NB6p" group-title="MISTURADO",Sexy Prive
 http://paraisotv.ddns.net/058/myStream/chunklist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="MISTURADO",Sex Zone
+#EXTINF:-1 tvg-logo="http://bit.ly/2ILxAVP" group-title="MISTURADO",Sex Zone
 http://paraisotv.ddns.net/008/myStream/chunklist.m3u8
 
 
@@ -249,32 +242,43 @@ http://paraisotv.ddns.net/008/myStream/chunklist.m3u8
 #EXTINF:-1 group-title="ESPORTES",[COLOR yellow]            > > > ESPORTES < < <[/COLOR]
 
 
-
-
-
-#EXTINF:-1 tvg-id="SporTV 2.igor"  tvg-logo="http://goo.gl/vtGyTX" group-title="Esportes",SPORTV 2
+#EXTINF:-1 tvg-logo="http://goo.gl/vtGyTX" group-title="ESPORTES",SPORTV 2
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/234.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-id="SporTV 3.igor"  tvg-logo="http://goo.gl/6ju0FK" group-title="Esportes",SPORTV 3
+#EXTINF:-1 tvg-logo="http://goo.gl/6ju0FK" group-title="ESPORTES",SPORTV 3
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/233.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-id="Band Sports.igor"  tvg-logo="http://goo.gl/291Lwj" group-title="Esportes",BAND Sports
+#EXTINF:-1 tvg-logo="http://goo.gl/291Lwj" group-title="ESPORTES",BAND Sports
 http://dp01-trwj4dm.stackpathdns.com/c015/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-id="ESPN Brasil.igor"  tvg-logo="http://goo.gl/GwBMAl" group-title="Esportes",ESPN Brasil
+#EXTINF:-1 tvg-logo="http://goo.gl/GwBMAl" group-title="ESPORTES",ESPN Brasil
 http://dp01-trwj4dm.stackpathdns.com/c001/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-id="ESPN.igor" tvg-logo="ESPN.png" tvg-logo="http://goo.gl/Pgcyh0" group-title="Esportes",ESPN
+#EXTINF:-1 tvg-logo="ESPN.png" tvg-logo="http://goo.gl/Pgcyh0" group-title="ESPORTES",ESPN
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/300.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-id="Premiere.igor"  tvg-logo="http://goo.gl/YpLC7E" group-title="Esportes",Premiere
+#EXTINF:-1 tvg-logo="http://goo.gl/YpLC7E" group-title="ESPORTES",Premiere
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/246.m3u8?|User-Agent=iPhone
 
-#EXTINF:-1 tvg-id="Combate.igor"  tvg-logo="http://goo.gl/q2H05k" group-title="Esportes",Combate
+#EXTINF:-1 tvg-logo="http://goo.gl/q2H05k" group-title="ESPORTES",Combate
 http://dp01-trwj4dm.stackpathdns.com/016/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-id="E Interativo.igor" tvg-logo="https://goo.gl/VvzJLq" group-title="Esportes",Esporte Interativo
+#EXTINF:-1 tvg-logo="https://goo.gl/VvzJLq" group-title="ESPORTES",Esporte Interativo
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/296.m3u8?|User-Agent=iPhone
+
+
+
+
+
+
+
+
+
+
+#EXTINF:0 group-title="gabelistaa",[COLOR blue]            -=-=-=-=-=[G]aB[e] Lista=-=-=-=-=- [/COLOR]
+
+
+
 
 
 
