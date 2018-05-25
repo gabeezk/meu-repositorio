@@ -6,28 +6,28 @@
 #EXTINF:-1 group-title="TV ABERTA",[COLOR yellow]            > > > TV ABERTA < < <[/COLOR]
 
 
-#EXTINF:-1 tvg-logo="https://bit.ly/2rY7bh9" group-title="TV ABERTA",GLOBO
+#EXTINF:-1 tvg-logo="https://bit.ly/2rY7bh9" group-title="TV ABERTA",Globo
 http://ith2gdq3vn.ddns.net/095/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/nVXYOf" group-title="TV ABERTA",SBT
 http://evpp.mm.uol.com.br/ne10/ne10.smil/chunklist_w1279440291_b216000_sleng.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/SZ94lw" group-title="TV ABERTA",BAND
+#EXTINF:-1 tvg-logo="http://goo.gl/SZ94lw" group-title="TV ABERTA",Band
 http://dp01-trwj4dm.stackpathdns.com/081/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/YQ9Ftm" group-title="TV ABERTA",RECORD
+#EXTINF:-1 tvg-logo="http://goo.gl/YQ9Ftm" group-title="TV ABERTA",Record
 http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/242.m3u8?|User-Agent=iPhone
 
 #EXTINF:-1 tvg-logo="http://goo.gl/A1WBTk" group-title="TV ABERTA",Rede TV
 http://ith2gdq3vn.ddns.net063/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/QCdPkl" group-title="TV ABERTA",GLOBO News
+#EXTINF:-1 tvg-logo="http://goo.gl/QCdPkl" group-title="TV ABERTA",Globo News
 http://ith2gdq3vn.ddns.net/013/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/dA26st" group-title="TV ABERTA",RECORD News
+#EXTINF:-1 tvg-logo="http://goo.gl/dA26st" group-title="TV ABERTA",Record News
 http://dp01-trwj4dm.stackpathdns.com/049/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://bit.ly/2IITMUj" group-title="TV ABERTA",BAND News
+#EXTINF:-1 tvg-logo="http://bit.ly/2IITMUj" group-title="TV ABERTA",Band News
 http://dp01-trwj4dm.stackpathdns.com/032/myStream/playlist.m3u8
 
 
@@ -80,7 +80,7 @@ http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/277.m3u8?|User-
 #EXTINF:-1 tvg-logo="http://bit.ly/2IKQaNC" group-title="FILMES/SERIES",Max
 http://dp01-trwj4dm.stackpathdns.com/051/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/Hbr506" group-title="FILMES/SERIES",Max Up
+#EXTINF:-1 tvg-logo="http://goo.gl/Hbr506" group-title="FILMES/SERIES",Max UP
 http://ith2gdq3vn.ddns.net/045/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/JG4dUv" group-title="FILMES/SERIES",Max Prime
@@ -95,7 +95,7 @@ http://ith2gdq3vn.ddns.net/029/myStream/playlist.m3u8
 #EXTINF:-1 tvg-logo="http://goo.gl/qXR9CS" group-title="FILMES/SERIES",Megapix
 http://ith2gdq3vn.ddns.net/033/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://goo.gl/iwCiPM" group-title="FILMES/SERIES",Paramount
+#EXTINF:-1 tvg-logo="http://goo.gl/iwCiPM" group-title="FILMES/SERIES",Paramount Channel
 http://ith2gdq3vn.ddns.net/004/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/T8ICde" group-title="FILMES/SERIES",Studio Universal
@@ -196,7 +196,7 @@ http://ith2gdq3vn.ddns.net/054/myStream/playlist.m3u8
 http://162.244.80.112/loadbalance/53728121535649232781/chunks.m3u8?pxAuth=4DbwXdtxnvfocgZ8w7fvgsoVA00Wh6Lj
 
 
-#EXTINF:-1 tvg-logo="https://goo.gl/al1XQO" group-title="MISTURADO",ID - Investigação Discovery
+#EXTINF:-1 tvg-logo="https://goo.gl/al1XQO" group-title="MISTURADO",ID: Investigação Discovery
 http://ith2gdq3vn.ddns.net/056/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="http://goo.gl/yXfk9Y" group-title="MISTURADO",Animal Planet
@@ -223,17 +223,15 @@ http://162.244.80.80/loadbalance/discoverytheater/chunks.m3u8?pxAuth=XgXaF6mx4Yh
 #EXTINF:-1 tvg-logo="http://bit.ly/2GMK8KM" group-title="MISTURADO",Discovery World
 http://dp01-trwj4dm.stackpathdns.com/094/myStream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="http://bit.ly/2GO1Q0j" group-title="MISTURADO",Sex Hot
+#EXTINF:-1 tvg-logo="http://bit.ly/2GO1Q0j" group-title="MISTURADO",SexyHot
 http://paraisotv.ddns.net/057/myStream/chunklist.m3u8
 
 #EXTINF:-1 tvg-logo="http://bit.ly/2KQ0zs6" group-title="MISTURADO",PlayboyTV
 http://paraisotv.ddns.net/059/myStream/chunklist.m3u8
 
-#EXTINF:-1 tvg-logo="http://bit.ly/2x9NB6p" group-title="MISTURADO",Sexy Prive
+#EXTINF:-1 tvg-logo="http://bit.ly/2x9NB6p" group-title="MISTURADO",SexPrive
 http://paraisotv.ddns.net/058/myStream/chunklist.m3u8
 
-#EXTINF:-1 tvg-logo="http://bit.ly/2ILxAVP" group-title="MISTURADO",Sex Zone
-http://paraisotv.ddns.net/008/myStream/chunklist.m3u8
 
 
 
@@ -276,7 +274,6 @@ http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/296.m3u8?|User-
 
 
 #EXTINF:0 group-title="gabelistaa",[COLOR blue]            -=-=-=-=-=[G]aB[e] Lista=-=-=-=-=- [/COLOR]
-
 
 
 
