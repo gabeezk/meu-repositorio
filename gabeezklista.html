@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Draconews</title>
+    <link rel="icon" href="">
+	<META http-equiv="refresh" content="0;URL=https://pastebin.com/raw/d4VecHLU">
+	<script>
+/**
+*Bloqueia : BotÃ£o Direito , Ctrl + c , Ctrl + x , ctrl + u, ctrl + a, ctrl + s e Alt + F4
+ */
+shortcut = {
+	'all_shortcuts':{},
+	'add': function(shortcut_combination,callback,opt) {
+
+		var default_options = {
+			'type':'keydown',
+			'propagate':false,
+			'disable_in_input':false,
+			'target':document,
+			'keycode':false
+		}
+		if(!opt) opt = default_options;
+		else {
+			for(var dfo in default_options) {
+				if(typeof opt[dfo] == 'undefined') opt[dfo] = default_options[dfo];
+			}
+		}
+
+		var ele = opt.target
+		if(typeof opt.target == 'string') ele = document.getElementById(opt.target);
+		var ths = this;
+		shortcut_combination = shortcut_combination.toLowerCase();
+
+
+		var func = function(e) {
+			e = e || window.event;
+			
+			if(opt['disable_in_input']) { 
+				var element;
+				if(e.target) element=e.target;
+				else if(e.srcElement) element=e.srcElement;
+				if(element.nodeType==3) element=element.parentNode;
+
+				if(element.tagName == 'INPUT' || element.tagName == 'TEXTAREA') return;
+			}
+	
+		
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			var character = String.fromCharCode(code).toLowerCase();
+			
+			if(code == 188) character=","; //
+			if(code == 190) character="."; //
+	
+			var keys = shortcut_combination.split("+");
+			
+			var kp = 0;
+			
+		
+			var shift_nums = {
+				"`":"~",
+				"1":"!",
+				"2":"@",
+				"3":"#",
+				"4":"$",
+				"5":"%",
+				"6":"^",
+				"7":"&",
+				"8":"*",
+				"9":"(",
+				"0":")",
+				"-":"_",
+				"=":"+",
+				";":":",
+				"'":"\"",
+				",":"<",
+				".":">",
+				"/":"?",
+				"\\":"|"
+			}
+		
+			var special_keys = {
+				'esc':27,
+				'escape':27,
+				'tab':9,
+				'space':32,
+				'return':13,
+				'enter':13,
+				'backspace':8,
+	
+				'scrolllock':145,
+				'scroll_lock':145,
+				'scroll':145,
+				'capslock':20,
+				'caps_lock':20,
+				'caps':20,
+				'numlock':144,
+				'num_lock':144,
+				'num':144,
+				
+				'pause':19,
+				'break':19,
+				
+				'insert':45,
+				'home':36,
+				'delete':46,
+				'end':35,
+				
+				'pageup':33,
+				'page_up':33,
+				'pu':33,
+	
+				'pagedown':34,
+				'page_down':34,
+				'pd':34,
+	
+				'left':37,
+				'up':38,
+				'right':39,
+				'down':40,
+	
+				'f1':112,
+				'f2':113,
+				'f3':114,
+				'f4':115,
+				'f5':116,
+				'f6':117,
+				'f7':118,
+				'f8':119,
+				'f9':120,
+				'f10':121,
+				'f11':122,
+				'f12':123
+			}
+	
+			var modifiers = { 
+				shift: { wanted:false, pressed:false},
+				ctrl : { wanted:false, pressed:false},
+				alt  : { wanted:false, pressed:false},
+				meta : { wanted:false, pressed:false}	
+			};
+                        
+			if(e.ctrlKey)	modifiers.ctrl.pressed = true;
+			if(e.shiftKey)	modifiers.shift.pressed = true;
+			if(e.altKey)	modifiers.alt.pressed = true;
+			if(e.metaKey)   modifiers.meta.pressed = true;
+                        
+			for(var i=0; k=keys[i],i<keys.length; i++) {
+
+				if(k == 'ctrl' || k == 'control') {
+					kp++;
+					modifiers.ctrl.wanted = true;
+
+				} else if(k == 'shift') {
+					kp++;
+					modifiers.shift.wanted = true;
+
+				} else if(k == 'alt') {
+					kp++;
+					modifiers.alt.wanted = true;
+				} else if(k == 'meta') {
+					kp++;
+					modifiers.meta.wanted = true;
+				} else if(k.length > 1) { 
+					if(special_keys[k] == code) kp++;
+					
+				} else if(opt['keycode']) {
+					if(opt['keycode'] == code) kp++;
+
+				} else { 
+					if(character == k) kp++;
+					else {
+						if(shift_nums[character] && e.shiftKey) { 
+							character = shift_nums[character]; 
+							if(character == k) kp++;
+						}
+					}
+				}
+			}
+
+			if(kp == keys.length && 
+						modifiers.ctrl.pressed == modifiers.ctrl.wanted &&
+						modifiers.shift.pressed == modifiers.shift.wanted &&
+						modifiers.alt.pressed == modifiers.alt.wanted &&
+						modifiers.meta.pressed == modifiers.meta.wanted) {
+				callback(e);
+	
+				if(!opt['propagate']) { 
+					
+					e.cancelBubble = true;
+					e.returnValue = false;
+	
+			
+					if (e.stopPropagation) {
+						e.stopPropagation();
+						e.preventDefault();
+					}
+					return false;
+				}
+			}
+		}
+		this.all_shortcuts[shortcut_combination] = {
+			'callback':func, 
+			'target':ele, 
+			'event': opt['type']
+		};
+
+		if(ele.addEventListener) ele.addEventListener(opt['type'], func, false);
+		else if(ele.attachEvent) ele.attachEvent('on'+opt['type'], func);
+		else ele['on'+opt['type']] = func;
+	},
+
+
+	'remove':function(shortcut_combination) {
+		shortcut_combination = shortcut_combination.toLowerCase();
+		var binding = this.all_shortcuts[shortcut_combination];
+		delete(this.all_shortcuts[shortcut_combination])
+		if(!binding) return;
+		var type = binding['event'];
+		var ele = binding['target'];
+		var callback = binding['callback'];
+
+		if(ele.detachEvent) ele.detachEvent('on'+type, callback);
+		else if(ele.removeEventListener) ele.removeEventListener(type, callback, false);
+		else ele['on'+type] = false;
+	}
+}
+
+function mk(descricao){
+alert("FunÃ§ao Bloqueada Por \n MK Pro Block 2.0 \n" + descricao)
+}
+shortcut.add("CTRL+U",function() 
+{
+ oncontextmenu='return false';
+ mk("Respeite o Codigo Fonte");
+});
+shortcut.add("CTRL+C",function() 
+{
+ oncontextmenu='return false';
+ mk("Nao Copie FaÃ§a o Seu");
+});
+shortcut.add("CTRL+X",function() 
+{
+ oncontextmenu='return false';
+ mk("Outra Tentativa de Copiar");
+});
+
+shortcut.add("CTRL+A",function() 
+{
+ oncontextmenu='return false';
+ mk("Nao Copie FaÃ§a o Seu");
+});
+
+shortcut.add("CTRL+S",function() 
+{
+ oncontextmenu='return false';
+ mk("Nao Copie FaÃ§a o Seu");
+});
+
+shortcut.add("ALT+F4",function() 
+{
+ alert("Obrigado pela Visita \n Volte Sempre");
+ window.close()
+
+});
+function click() {
+if (event.button==2||event.button==3) {
+ oncontextmenu='return false';
+  mk(" Botao Direito? ");
+  }
+}
+document.onmousedown=click
+document.oncontextmenu = new Function("return false;")
+
+/**
+* Anti SeleÃ§Ã£o
+ */
+var tagsAbertas =["input", "textarea", "select", "div"];
+tagsAbertas = tagsAbertas.join("|");
+
+function fechaCamposFF(e){
+var elemento = (e.target)?e.target:e.srcElement;
+	if (tagsAbertas.indexOf(elemento.tagName.toLowerCase())==-1)
+		return false;
+}
+
+function abreCamposFF(){
+return true
+}
+
+function fechaCamposIE(){
+var elemento = event.srcElement;
+	if(tagsAbertas.indexOf(elemento.tagName.toLowerCase()) == -1)
+		document.onselectstart = new Function ("return false");
+}
+
+function abreCamposIE(){
+var elemento = event.srcElement;
+	if(tagsAbertas.indexOf(elemento.tagName.toLowerCase()) == -1){
+		document.onselectstart = new Function ("return false");
+	}else{
+		document.onselectstart = new Function ("return true");
+	}
+}
+
+if (typeof document.onselectstart != "undefined"){
+document.onmousedown	=	fechaCamposIE;
+document.onmouseup		=	abreCamposIE;
+document.onselectstart  = new Function ("return false");
+}else{
+document.onmousedown	=	fechaCamposFF;
+document.onmouseup		=	abreCamposFF;
+}
+</script>
+</head>
+<body>
+
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#EXTM3U
+
+
+#EXTINF:0 group-title="gabelista",[COLOR blue]            -=-=-=-=-=[G]aB[e] Lista=-=-=-=-=- [/COLOR]
+
+#EXTINF:-1 group-title="TV ABERTA",[COLOR yellow]            > > > TV ABERTA < < <[/COLOR]
+
+
+#EXTINF:-1 tvg-logo="https://bit.ly/2rY7bh9" group-title="TV ABERTA",Globo
+http://ith2gdq3vn.ddns.net/095/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/nVXYOf" group-title="TV ABERTA",SBT
+http://evpp.mm.uol.com.br/ne10/ne10.smil/chunklist_w1279440291_b216000_sleng.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/SZ94lw" group-title="TV ABERTA",Band
+http://dp01-trwj4dm.stackpathdns.com/081/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/YQ9Ftm" group-title="TV ABERTA",Record
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/242.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/A1WBTk" group-title="TV ABERTA",Rede TV
+http://ith2gdq3vn.ddns.net063/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/QCdPkl" group-title="TV ABERTA",Globo News
+http://ith2gdq3vn.ddns.net/013/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/dA26st" group-title="TV ABERTA",Record News
+http://dp01-trwj4dm.stackpathdns.com/049/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2IITMUj" group-title="TV ABERTA",Band News
+http://dp01-trwj4dm.stackpathdns.com/032/myStream/playlist.m3u8
+
+
+
+
+
+
+#EXTINF:-1 group-title="FILMES/SERIES",[COLOR yellow]            > > > FILMES/SERIES < < <[/COLOR]
+
+
+#EXTINF:-1 tvg-logo="http://goo.gl/5IKysn" group-title="FILMES/SERIES",Telecine Pipoca
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/225.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/XaOWO6" group-title="FILMES/SERIES",Telecine Premium
+http://ith2gdq3vn.ddns.net/069/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/P79aKf" group-title="FILMES/SERIES",Telecine Action
+http://ith2gdq3vn.ddns.net/068/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/Dk6F7h" group-title="FILMES/SERIES",Telecine Fun
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/226.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/AfJkib" group-title="FILMES/SERIES",Telecine Touch
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/223.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/fLmSUL" group-title="FILMES/SERIES",Telecine Cult
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/227.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/vUl6oy" group-title="FILMES/SERIES",TNT
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/203.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/2ZBWuk" group-title="FILMES/SERIES",TNT Series
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/201.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/N9ccs5" group-title="FILMES/SERIES",HBO
+http://ith2gdq3vn.ddns.net/053/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/yrDz67" group-title="FILMES/SERIES",HBO 2
+http://ith2gdq3vn.ddns.net/047/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/2BXhGr" group-title="FILMES/SERIES",HBO Family
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/281.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/ISXYSM" group-title="FILMES/SERIES",HBO Plus
+http://ith2gdq3vn.ddns.net/037/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/pTRcv8" group-title="FILMES/SERIES",HBO Signature
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/277.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2IKQaNC" group-title="FILMES/SERIES",Max
+http://dp01-trwj4dm.stackpathdns.com/051/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/Hbr506" group-title="FILMES/SERIES",Max UP
+http://ith2gdq3vn.ddns.net/045/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/JG4dUv" group-title="FILMES/SERIES",Max Prime
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/270.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/oDAihL" group-title="FILMES/SERIES",Cinemax
+http://ith2gdq3vn.ddns.net/035/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/GY0nyM" group-title="FILMES/SERIES",Space
+http://ith2gdq3vn.ddns.net/029/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/qXR9CS" group-title="FILMES/SERIES",Megapix
+http://ith2gdq3vn.ddns.net/033/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/iwCiPM" group-title="FILMES/SERIES",Paramount Channel
+http://ith2gdq3vn.ddns.net/004/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/T8ICde" group-title="FILMES/SERIES",Studio Universal
+http://ith2gdq3vn.ddns.net/096/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/13gfQq" group-title="FILMES/SERIES",Fox
+http://dp01-trwj4dm.stackpathdns.com/064/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/STGSLK" group-title="FILMES/SERIES",Fox Life
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/293.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/Tjbghz" group-title="FILMES/SERIES",FOX Premium 1
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/444.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/PCAV8s" group-title="FILMES/SERIES",FOX Premium 2
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/443.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/RnqXjY" group-title="FILMES/SERIES",FX
+http://dp01-trwj4dm.stackpathdns.com/046/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/K8V00r" group-title="FILMES/SERIES",Universal Channel
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/216.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/u2Eh6h" group-title="FILMES/SERIES",Warner Channel
+http://ith2gdq3vn.ddns.net/080/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/omksVK" group-title="FILMES/SERIES",Sony
+http://ith2gdq3vn.ddns.net/003/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/7GDv0O" group-title="FILMES/SERIES",Comedy Central
+http://ith2gdq3vn.ddns.net/030/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/VDyslJ" group-title="FILMES/SERIES",SyFy
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/230.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/6Y4LUI" group-title="FILMES/SERIES",TBS
+http://ith2gdq3vn.ddns.net/038/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://logosc.ucoz.com/TCM.png" group-title="FILMES/SERIES",TCM
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/202.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/U4atFv" group-title="FILMES/SERIES",AXN
+http://ith2gdq3vn.ddns.net/078/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/TLM39Z" group-title="FILMES/SERIES",AMC
+http://ith2gdq3vn.ddns.net/007/myStream/playlist.m3u8
+
+
+
+
+
+#EXTINF:-1 group-title="MISTURADO",[COLOR yellow]            > > > MISTURADO < < <[/COLOR]
+
+
+#EXTINF:-1 tvg-logo="http://goo.gl/oF6osu" group-title="MISTURADO",Cartoon Network
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/319.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/welGCW" group-title="MISTURADO",Nick
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/259.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/aWbwb4" group-title="MISTURADO",Disney XD
+http://ith2gdq3vn.ddns.net/086/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/7LIjII" group-title="MISTURADO",Multishow
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/265.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/XQfSPS" group-title="MISTURADO",MTV
+http://ith2gdq3vn.ddns.net/072/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/09Wgmh" group-title="MISTURADO",BIS
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/324.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://www.elpoderdelasideas.com/wp-content/uploads/E-Entertainment-Television-logo-1990s.png" group-title="MISTURADO",E! Entertainment
+http://ith2gdq3vn.ddns.net/070/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/sJijSQ" group-title="MISTURADO",Food Network
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/294.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/cfDftL" group-title="MISTURADO",Mais GloboSat
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/272.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="https://goo.gl/46JvTg" group-title="MISTURADO",TLC
+http://ith2gdq3vn.ddns.net/034/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/INXrU0" group-title="MISTURADO",National Geographic
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/261.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/t0czad" group-title="MISTURADO",National Geographic Wild
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/262.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/5rr2ab" group-title="MISTURADO",The History Channel
+http://ith2gdq3vn.ddns.net/024/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/5rr2ab" group-title="MISTURADO",H2
+http://ith2gdq3vn.ddns.net/054/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://lith.tc/2Lsdr91" group-title="MISTURADO",A&E
+http://162.244.80.112/loadbalance/53728121535649232781/chunks.m3u8?pxAuth=4DbwXdtxnvfocgZ8w7fvgsoVA00Wh6Lj
+
+
+#EXTINF:-1 tvg-logo="https://goo.gl/al1XQO" group-title="MISTURADO",ID: Investigação Discovery
+http://ith2gdq3vn.ddns.net/056/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/yXfk9Y" group-title="MISTURADO",Animal Planet
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/332.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/ewCTK1" group-title="MISTURADO",Discovery Home & Health
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/308.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/5ObfPV" group-title="MISTURADO",Discovery Channel
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/310.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/B8yVJo" group-title="MISTURADO",Discovery Turbo
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/305.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://goo.gl/vZm1PM" group-title="MISTURADO",Discovery Civilization
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/309.m3u8?|User-Agent=iPhone
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2sba916" group-title="MISTURADO",Discovery Science
+http://paraisotv.ddns.net/074/myStream/chunklist.m3u8
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2GKwVSF" group-title="MISTURADO",Discovery Theater
+http://162.244.80.80/loadbalance/discoverytheater/chunks.m3u8?pxAuth=XgXaF6mx4YhXnBol6s6jIi5mKq7Livxz
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2GMK8KM" group-title="MISTURADO",Discovery World
+http://dp01-trwj4dm.stackpathdns.com/094/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2GO1Q0j" group-title="MISTURADO",SexyHot
+http://paraisotv.ddns.net/057/myStream/chunklist.m3u8
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2KQ0zs6" group-title="MISTURADO",PlayboyTV
+http://paraisotv.ddns.net/059/myStream/chunklist.m3u8
+
+#EXTINF:-1 tvg-logo="http://bit.ly/2x9NB6p" group-title="MISTURADO",SexPrive
+http://paraisotv.ddns.net/058/myStream/chunklist.m3u8
+
+
+
+
+
+
+#EXTINF:-1 group-title="ESPORTES",[COLOR yellow]            > > > ESPORTES < < <[/COLOR]
+
+
+
+#EXTINF:-1 tvg-logo="http://goo.gl/GwBMAl" group-title="ESPORTES",ESPN Brasil
+http://dp01-trwj4dm.stackpathdns.com/c001/myStream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="http://goo.gl/Pgcyh0" group-title="ESPORTES",ESPN
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/300.m3u8?|User-Agent=iPhone
+
+
+#EXTINF:-1 tvg-logo="https://goo.gl/VvzJLq" group-title="ESPORTES",Esporte Interativo
+http://23.237.22.190:8080/live/CanaisSDSmtpturbo/TXhghxh6LGhFHEK/296.m3u8?|User-Agent=iPhone
+
+
+
+
+
+
+
+
+
+
+#EXTINF:0 group-title="gabelistaa",[COLOR blue]            -=-=-=-=-=[G]aB[e] Lista=-=-=-=-=- [/COLOR]
+
+
+</pre>
+<div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website_dantas-toptv-lista&utm_content=footer_img"><img src="https://cloud.githubusercontent.com/assets/23024110/20663010/9968df22-b55e-11e6-941d-edbc894c2b78.png"  alt="www.000webhost.com"></a></div></body>
+</html>
